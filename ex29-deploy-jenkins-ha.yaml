@@ -1,0 +1,26 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: deploy29-jenkins-ha
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      tag: label29
+  template:
+    metadata:
+      labels:
+        tag: label29
+    spec:
+      volumes:
+      - name: vol-jenkins-ha
+        nfs:
+          server: 10.252.13.202
+      containers:
+      - name: ctr29
+        image: jenkins/jenkins
+        volumeMounts:
+        - name: vol-jenkins-ha
+          mountPath: /var/jenkins_home
+...

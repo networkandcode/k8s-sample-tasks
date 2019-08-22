@@ -1,0 +1,18 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: deploy20-nfs
+spec:
+  selector:
+    matchLabels:
+      tag: label29-nfs
+  template:
+    metadata:
+      labels:
+        tag: label29-nfs
+    spec:
+      containers:
+      - name: ctr29-nfs
+        image: itsthenetwork/nfs-server-alpine:latest
+...

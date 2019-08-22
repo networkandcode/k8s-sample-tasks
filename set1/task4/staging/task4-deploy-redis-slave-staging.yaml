@@ -1,0 +1,25 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy4-redis-slave
+  namespace: staging
+spec: 
+  replicas: 2
+  selector:
+    matchLabels:
+      tag: label4-redis-slave
+  template:
+    metadata:
+      labels:
+        tag: label4-redis-slave
+    spec:
+      containers:
+      - name: ctr4-redis-slave
+        image: gcr.io/google_samples/gb-redisslave:v3
+        ports:
+        - containerPort: 6379
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+...
