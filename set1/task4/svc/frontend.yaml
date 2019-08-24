@@ -3,7 +3,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: svc4-frontend
-  namespace: production
+  namespace: NamespaceName
 spec:
   selector:
     tag: label4-frontend
@@ -11,4 +11,5 @@ spec:
   ports:
   - name: port4-frontend
     port: 80
+    nodePort: NodePortNumber 
 ...

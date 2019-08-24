@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: deploy4-redis-master
-  namespace: production
+  namespace: NamespaceName
 spec: 
   selector:
     matchLabels:
